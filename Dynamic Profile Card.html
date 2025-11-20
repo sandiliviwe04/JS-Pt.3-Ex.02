@@ -1,0 +1,141 @@
+<style>
+    #profileCard {
+        width: 350px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadeIn 1s;
+        background-color: #f9f9f9;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    #profileImage {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 5px solid #4CAF50;
+    }
+
+    #profileName {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    #profileRole {
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    #profileBio {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin: 5px;
+    }
+
+    button:hover {
+        background-color: #3e8e41;
+        transform: scale(1.05);
+        transition: transform 0.3s;
+    }
+
+    .active-status {
+        background-color: #c3e6cb;
+        animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            background-color: #c3e6cb;
+        }
+        50% {
+            background-color: #a1d7b2;
+        }
+        100% {
+            background-color: #c3e6cb;
+        }
+    }
+</style>
+
+<div id="profileCard">
+    <img id="profileImage" src="https://picsum.photos/200/300" alt="Profile Image">
+    <h2 id="profileName">Liviwe Sandi</h2>
+    <p id="profileRole">Software Developer</p>
+    <p id="profileBio">Passionate about coding and learning new technologies.</p>
+    <button id="updateNameBtn">Update Name</button>
+    <button id="updateRoleBtn">Update Role</button>
+    <button id="toggleStatusBtn">Toggle Active Status</button>
+    <button id="changeImageBtn">Change Image</button>
+    <button id="updateBioBtn">Update Bio</button>
+</div>
+
+<script>
+    const profileCard = document.getElementById('profileCard');
+    const profileName = document.getElementById('profileName');
+    const profileRole = document.getElementById('profileRole');
+    const profileBio = document.getElementById('profileBio');
+    const profileImage = document.getElementById('profileImage');
+    const updateNameBtn = document.getElementById('updateNameBtn');
+    const updateRoleBtn = document.getElementById('updateRoleBtn');
+    const toggleStatusBtn = document.getElementById('toggleStatusBtn');
+    const changeImageBtn = document.getElementById('changeImageBtn');
+    const updateBioBtn = document.getElementById('updateBioBtn');
+
+    updateNameBtn.addEventListener('click', () => {
+        const newName = prompt('Enter new name:');
+        if (newName) {
+            profileName.textContent = newName;
+        }
+    });
+
+    updateRoleBtn.addEventListener('click', () => {
+        const newRole = prompt('Enter new role:');
+        if (newRole) {
+            profileRole.textContent = newRole;
+        }
+    });
+
+    toggleStatusBtn.addEventListener('click', () => {
+        profileCard.classList.toggle('active-status');
+    });
+
+    changeImageBtn.addEventListener('click', () => {
+        const newImageUrl = prompt('Enter new image URL:');
+        if (newImageUrl) {
+            profileImage.src = newImageUrl;
+        }
+    });
+
+    updateBioBtn.addEventListener('click', () => {
+        const newBio = prompt('Enter new bio:');
+        if (newBio) {
+            profileBio.textContent = newBio;
+        }
+    });
+</script>
